@@ -1,15 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
-
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -19,38 +8,93 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            height: 100vh;
-            display: flex;
-            justify-content: left;
-            align-items: left;
             background: linear-gradient(
                 rgba(40, 35, 110, 0.4),
                 rgba(40, 35, 110, 0.4)
             ), url('Nevado_del_Ruiz.jpg') no-repeat center center/cover;
             color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
         .container {
-            text-align: left;
-            background-color: rgba(0, 0, 0, 0.5); /* Fondo translúcido para resaltar el texto */
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
             padding: 30px;
             border-radius: 15px;
+            width: 80%;
         }
         h1 {
             margin: 0;
             font-size: 3rem;
             text-shadow: 5px 5px 5px rgba(1, 1, 1, 0.8);
         }
-        h2 {
-            margin: 10px 0 0 0;
-            font-size: 2rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-around;
+        }
+        ul li {
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        ul li:hover, ul li.active {
+            background-color: rgba(255, 255, 255, 0.5);
+            font-weight: bold;
+        }
+        .content {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .content p {
+            font-size: 1.2rem;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>BIENVENIDOS a,</h1>
-        <h2>Hostal Pachanuna</h2>
+        <h1>Hostal Pachanuna</h1>
+        <ul>
+            <li data-section="about" class="active">Sobre nosotros</li>
+            <li data-section="rooms">Habitaciones</li>
+            <li data-section="recommendations">Recomendaciones</li>
+            <li data-section="contact">Contacto</li>
+        </ul>
+        <div class="content">
+            <p id="about">¡Bienvenidos! Somos un hostal dedicado a ofrecer una experiencia inolvidable cerca del Nevado del Ruiz.</p>
+            <p id="rooms" style="display: none;">Explora nuestras habitaciones para encontrar la que más se ajuste a tus necesidades.</p>
+            <p id="recommendations" style="display: none;">Descubre las mejores actividades, lugares y experiencias recomendadas para ti.</p>
+            <p id="contact" style="display: none;">Contáctanos al +57 123 456 7890 o al correo contacto@hostalpachanuna.com</p>
+        </div>
     </div>
+
+    <script>
+        document.querySelectorAll('ul li').forEach(item => {
+            item.addEventListener('click', function() {
+                // Cambiar la clase activa
+                document.querySelectorAll('ul li').forEach(el => el.classList.remove('active'));
+                this.classList.add('active');
+
+                // Mostrar el contenido correspondiente
+                const section = this.getAttribute('data-section');
+                document.querySelectorAll('.content p').forEach(el => el.style.display = 'none');
+                
+                if (section === "rooms") {
+                    // Redirigir a otra página para habitaciones
+                    window.location.href = "habitaciones.html";
+                } else {
+                    document.getElementById(section).style.display = 'block';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
