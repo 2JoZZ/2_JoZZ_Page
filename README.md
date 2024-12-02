@@ -1,6 +1,6 @@
 # 2_JoZZ_Page
-En (🇺🇸🇬🇧🇨🇦🇦🇺🇳🇿🇮🇪🇿🇦🇯🇲🇧🇧🇧🇸🇬🇾🇹🇹🇧🇿)
-About this repository
+### En (🇺🇸🇬🇧🇨🇦🇦🇺🇳🇿🇮🇪🇿🇦🇯🇲🇧🇧🇧🇸🇬🇾🇹🇹🇧🇿)
+# About this repository
 In this repository, you will find a basic code template for creating a catalog-style web page to showcase and offer services or products of your choice.
 
 ### Additional Terms
@@ -9,8 +9,9 @@ While the code in this repository is licensed under the MIT License, the followi
 - Names and descriptions of the rooms.
 - Location and other specific details about the hostel.
 
-ES (🇪🇸🇲🇽🇦🇷🇨🇴🇨🇱🇵🇪🇻🇪🇪🇨🇬🇹🇨🇺🇧🇴🇩🇴🇭🇳🇵🇾🇸🇻🇳🇮🇨🇷🇵🇦🇺🇾)
-Acerca de este repositorio
+
+### ES (🇪🇸🇲🇽🇦🇷🇨🇴🇨🇱🇵🇪🇻🇪🇪🇨🇬🇹🇨🇺🇧🇴🇩🇴🇭🇳🇵🇾🇸🇻🇳🇮🇨🇷🇵🇦🇺🇾)
+# Acerca de este repositorio
 En este repositorio, encontrará una plantilla de código básica para crear una página web estilo catálogo para mostrar y ofrecer servicios o productos de su elección.
 
 ### Términos adicionales
