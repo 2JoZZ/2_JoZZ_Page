@@ -8,29 +8,37 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
             background: linear-gradient(
                 rgba(40, 35, 110, 0.4),
                 rgba(40, 35, 110, 0.4)
             ), url('Nevado_del_Ruiz.jpg') no-repeat center center/cover;
             color: white;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        }
+        .header {
+            margin-top: 20px;
             text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            width: 80%;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-shadow: 5px 5px 5px rgba(1, 1, 1, 0.8);
         }
         .container {
-            text-align: center;
+            margin-top: 20px;
             background-color: rgba(0, 0, 0, 0.7);
             padding: 30px;
             border-radius: 15px;
             width: 80%;
-        }
-        h1 {
-            margin: 0;
-            font-size: 3rem;
-            text-shadow: 5px 5px 5px rgba(1, 1, 1, 0.8);
         }
         ul {
             list-style: none;
@@ -57,11 +65,42 @@
         .content p {
             font-size: 1.2rem;
         }
+        footer {
+            background-color: #001F54; /* Azul oscuro */
+            color: white;
+            width: 100%;
+            height: 15%;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        footer .column {
+            width: 22%;
+            text-align: left;
+        }
+        footer .column h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        footer .column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        footer .column ul li {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
+    <div class="header">
+        <h1>Bienvenidos a, Hostal Pachanuna</h1>
+    </div>
     <div class="container">
-        <h1>Hostal Pachanuna</h1>
         <ul>
             <li data-section="about" class="active">Sobre nosotros</li>
             <li data-section="rooms">Habitaciones</li>
@@ -75,6 +114,39 @@
             <p id="contact" style="display: none;">Contáctanos al +57 123 456 7890 o al correo contacto@hostalpachanuna.com</p>
         </div>
     </div>
+    <footer>
+        <div class="column">
+            <h3>Lugares de interés</h3>
+            <ul>
+                <li>Parque Nacional</li>
+                <li>Termales</li>
+                <li>Montañas</li>
+                <li>Cascadas</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>Personal</h3>
+            <ul>
+                <li>Jonathan</li>
+                <li>Diana</li>
+                <li>Carolina</li>
+                <li>Dayana</li>
+                <li>Marcela</li>
+                <li>Familia</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>Restricciones</h3>
+            <ul>
+                <li>Pico y placa</li>
+                <li>Hostal</li>
+                <li>Municipio</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h3>Gracias por visitarnos</h3>
+        </div>
+    </footer>
 
     <script>
         document.querySelectorAll('ul li').forEach(item => {
@@ -83,7 +155,7 @@
                 document.querySelectorAll('ul li').forEach(el => el.classList.remove('active'));
                 this.classList.add('active');
 
-                // Mostrar el contenido correspondiente
+                // Cambiar el contenido y la imagen de fondo
                 const section = this.getAttribute('data-section');
                 document.querySelectorAll('.content p').forEach(el => el.style.display = 'none');
                 
@@ -91,7 +163,17 @@
                     // Redirigir a otra página para habitaciones
                     window.location.href = "habitaciones.html";
                 } else {
+                    // Cambiar el contenido
                     document.getElementById(section).style.display = 'block';
+
+                    // Cambiar la imagen de fondo
+                    if (section === "about") {
+                        document.body.style.backgroundImage = "url('sobre_nosotros.jpg')"; // Línea para poner la nueva imagen
+                    } else if (section === "recommendations") {
+                        document.body.style.backgroundImage = "url('recomendaciones.jpg')"; // Línea para poner la nueva imagen
+                    } else if (section === "contact") {
+                        document.body.style.backgroundImage = "url('contacto.jpg')"; // Línea para poner la nueva imagen
+                    }
                 }
             });
         });
