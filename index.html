@@ -8,12 +8,10 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            text-align: center;
+            justify-content: space-between;
             background: linear-gradient(
                 rgba(40, 35, 110, 0.4),
                 rgba(40, 35, 110, 0.4)
@@ -34,7 +32,7 @@
             text-shadow: 5px 5px 5px rgba(1, 1, 1, 0.8);
         }
         .container {
-            margin-top: 20px;
+            margin: 20px auto;
             background-color: rgba(0, 0, 0, 0.7);
             padding: 30px;
             border-radius: 15px;
@@ -75,6 +73,8 @@
             align-items: flex-start;
             padding: 20px;
             box-sizing: border-box;
+            position: fixed;
+            bottom: 0;
         }
         footer .column {
             width: 22%;
@@ -151,28 +151,23 @@
     <script>
         document.querySelectorAll('ul li').forEach(item => {
             item.addEventListener('click', function() {
-                // Cambiar la clase activa
                 document.querySelectorAll('ul li').forEach(el => el.classList.remove('active'));
                 this.classList.add('active');
 
-                // Cambiar el contenido y la imagen de fondo
                 const section = this.getAttribute('data-section');
                 document.querySelectorAll('.content p').forEach(el => el.style.display = 'none');
                 
                 if (section === "rooms") {
-                    // Redirigir a otra página para habitaciones
                     window.location.href = "habitaciones.html";
                 } else {
-                    // Cambiar el contenido
                     document.getElementById(section).style.display = 'block';
 
-                    // Cambiar la imagen de fondo
                     if (section === "about") {
-                        document.body.style.backgroundImage = "url('sobre_nosotros.jpg')"; // Línea para poner la nueva imagen
+                        document.body.style.backgroundImage = "url('sobre_nosotros.jpg')";
                     } else if (section === "recommendations") {
-                        document.body.style.backgroundImage = "url('recomendaciones.jpg')"; // Línea para poner la nueva imagen
+                        document.body.style.backgroundImage = "url('recomendaciones.jpg')";
                     } else if (section === "contact") {
-                        document.body.style.backgroundImage = "url('contacto.jpg')"; // Línea para poner la nueva imagen
+                        document.body.style.backgroundImage = "url('contacto.jpg')";
                     }
                 }
             });
